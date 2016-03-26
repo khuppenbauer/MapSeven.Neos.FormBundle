@@ -1,0 +1,18 @@
+{
+    "description": "Bundle package for Neos CMS Form stuff",
+    "type": "typo3-flow-package",
+    "name": "mapseven/neos-formbundle",
+    "require": {
+        "typo3/flow": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "MapSeven\\Neos\\FormBundle": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "MapSeven.Neos.FormBundle"
+        }
+    }
+}

@@ -1,0 +1,95 @@
+<?php
+namespace MapSeven\Neos\FormBundle\Finishers;
+
+/*                                                                        *
+ * This script belongs to the TYPO3 Flow package "MapSeven.Neos.FormBundle*
+ *                                                                        *
+ * It is free software; you can redistribute it and/or modify it under    *
+ * the terms of the GNU Lesser General Public License, either version 3   *
+ * of the License, or (at your option) any later version.                 *
+ *                                                                        *
+ * The TYPO3 project - inspiring people to share!                         *
+ *                                                                        */
+
+use TYPO3\Flow\Annotations as Flow;
+use MapSeven\Neos\FormBundle\Domain\Model\FormData;
+use MapSeven\Neos\FormBundle\Domain\Repository\FormDataRepository;
+
+/**
+ * This finisher sends an email to one recipient
+ *
+ */
+class PersistenceFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
+{
+
+    /**
+     * @var array
+     */
+    protected $defaultOptions = array(
+        'db' => true
+    );
+
+    /**
+     * @Flow\Inject
+     * @var FormDataRepository
+     */
+    protected $formDataRepository;
+
+    /**
+     * @var \TYPO3\Flow\Security\Context
+     */
+    protected $securityContext;
+
+    /**
+     * Injects the security context
+     *
+     * @param \TYPO3\Flow\Security\Context $securityContext The security context
+     * @return void
+     */
+    public function injectSecurityContext(\TYPO3\Flow\Security\Context $securityContext)
+    {
+        $this->securityContext = $securityContext;
+    }
+
+    /**
+     * Executes this finisher
+     * @see AbstractFinisher::execute()
+     *
+     * @return void
+     * @throws \TYPO3\Form\Exception\FinisherException
+     */
+    protected function executeInternal()
+    {
+        $formRuntime = $this->finisherContext->getFormRuntime();
+        $formValues = json_encode($formRuntime->getFormState()->getFormValues());
+        $formIdentifier = $formRuntime->getFormDefinition()->getIdentifier();
+        $accountIdentifier = $this->getAccountIdentifier();
+        $formData = new FormData($formIdentifier, $accountIdentifier, $formValues);
+        foreach ($this->defaultOptions as $option => $value) {
+            $value = $this->parseOption($option);
+            if ($value === false) {
+                continue;
+            }
+            switch ($option) {
+                case 'db':
+                    $this->formDataRepository->add($formData);
+                    break;
+            }
+        }
+    }
+
+    /**
+     * @return null|string
+     */
+    protected function getAccountIdentifier()
+    {
+        $accountIdentifier = null;
+        if ($this->securityContext !== null && $this->securityContext->canBeInitialized()) {
+            $account = $this->securityContext->getAccount();
+            if ($account !== null) {
+                $accountIdentifier = $account->getAccountIdentifier();
+            }
+        }
+        return $accountIdentifier;
+    }
+}

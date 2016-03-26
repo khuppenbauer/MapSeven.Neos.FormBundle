@@ -1,0 +1,9 @@
+TYPO3:
+  Form:
+    presets:
+      default:
+        ### FINISHERS ###
+        finisherPresets:
+          'MapSeven.Neos.FormBundle:Persistence':
+            implementationClassName: 'MapSeven\Neos\FormBundle\Finishers\PersistenceFinisher'
+            options: {}
