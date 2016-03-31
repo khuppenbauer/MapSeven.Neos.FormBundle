@@ -3,7 +3,9 @@
     "type": "typo3-flow-package",
     "name": "mapseven/neos-formbundle",
     "require": {
-        "typo3/flow": "*"
+        "typo3/flow": "*",
+        "typo3/form": "*",
+        "flowpack/elasticsearch": "*"
     },
     "autoload": {
         "psr-0": {

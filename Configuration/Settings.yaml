@@ -7,3 +7,61 @@ TYPO3:
           'MapSeven.Neos.FormBundle:Persistence':
             implementationClassName: 'MapSeven\Neos\FormBundle\Finishers\PersistenceFinisher'
             options: {}
+
+MapSeven:
+  Neos:
+    FormBundle:
+      elasticSearch:
+        indexName: formdata
+        defaultMapping:
+          _timestamp:
+            enabled: true
+            store: true
+            path: _date
+          _all:
+            index_analyzer: nGram_analyzer
+            search_analyzer: whitespace_analyzer
+          properties:
+            _date:
+              type: date
+              index: 'no'
+        transform:
+          _date:
+            type: Date
+            options:
+              format: c
+
+Flowpack:
+  ElasticSearch:
+    indexes:
+      default:
+        formdata:
+          analysis:
+            filter:
+              nGram_filter:
+                type: nGram
+                min_gram: 2
+                max_gram: 20
+                token_chars:
+                  - letter
+                  - digit
+                  - punctuation
+                  - symbol
+            analyzer:
+              nGram_analyzer:
+                type: custom
+                tokenizer: whitespace
+                filter:
+                  - lowercase
+                  - asciifolding
+                  - nGram_filter
+              whitespace_analyzer:
+                type: custom
+                tokenizer: whitespace
+                filter:
+                  - lowercase
+                  - asciifolding
+              string_lowercase:
+                type: custom
+                tokenizer: keyword
+                filter: lowercase

@@ -1,0 +1,4 @@
+MapSeven\Neos\FormBundle\ElasticSearch\ElasticSearchClient:
+  scope: singleton
+  factoryObjectName: MapSeven\Neos\FormBundle\ElasticSearch\Client\ClientFactory
+  factoryMethodName: create

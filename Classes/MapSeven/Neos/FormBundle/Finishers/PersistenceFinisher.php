@@ -14,6 +14,8 @@ namespace MapSeven\Neos\FormBundle\Finishers;
 use TYPO3\Flow\Annotations as Flow;
 use MapSeven\Neos\FormBundle\Domain\Model\FormData;
 use MapSeven\Neos\FormBundle\Domain\Repository\FormDataRepository;
+use MapSeven\Neos\FormBundle\ElasticSearch\Service\ElasticSearchService;
+use TYPO3\Form\Core\Model\FormElementInterface;
 
 /**
  * This finisher sends an email to one recipient
@@ -26,7 +28,8 @@ class PersistenceFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
      * @var array
      */
     protected $defaultOptions = array(
-        'db' => true
+        'db' => true,
+        'elasticSearch' => false
     );
 
     /**
@@ -34,6 +37,12 @@ class PersistenceFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
      * @var FormDataRepository
      */
     protected $formDataRepository;
+
+    /**
+     * @Flow\Inject
+     * @var ElasticSearchService
+     */
+    protected $elasticSearchService;
 
     /**
      * @var \TYPO3\Flow\Security\Context
@@ -74,6 +83,16 @@ class PersistenceFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
                 case 'db':
                     $this->formDataRepository->add($formData);
                     break;
+                case 'elasticSearch':
+                    $properties = array();
+                    $elements = $formRuntime->getFormDefinition()->getRenderablesRecursively();
+                    foreach ($elements as $element) {
+                        if (!$element instanceof FormElementInterface) {
+                            continue;
+                        }
+                        $properties[$element->getIdentifier()] = $element->getProperties();
+                    }
+                    $this->elasticSearchService->index($formData, $properties);
             }
         }
     }
