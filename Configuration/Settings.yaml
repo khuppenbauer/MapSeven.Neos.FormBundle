@@ -14,12 +14,8 @@ MapSeven:
       elasticSearch:
         indexName: formdata
         defaultMapping:
-          _timestamp:
-            enabled: true
-            store: true
-            path: _date
           _all:
-            index_analyzer: nGram_analyzer
+            analyzer: nGram_analyzer
             search_analyzer: whitespace_analyzer
           properties:
             _date:
