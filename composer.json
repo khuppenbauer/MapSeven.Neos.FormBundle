@@ -2,6 +2,7 @@
     "description": "Bundle package for Neos CMS Form stuff",
     "type": "typo3-flow-package",
     "name": "mapseven/neos-formbundle",
+    "license": "MIT",
     "require": {
         "typo3/flow": "*",
         "typo3/form": "*",
