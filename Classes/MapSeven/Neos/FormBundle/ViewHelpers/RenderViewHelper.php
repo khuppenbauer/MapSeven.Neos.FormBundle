@@ -14,7 +14,7 @@ namespace MapSeven\Neos\FormBundle\ViewHelpers;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Http\Response;
 use Neos\Utility\Arrays;
-use TYPO3\Fluid\Core\ViewHelper\AbstractViewHelper;
+use Neos\FluidAdaptor\Core\ViewHelper\AbstractViewHelper;
 use Neos\Form\Persistence\FormPersistenceManagerInterface;
 
 /**
