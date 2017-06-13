@@ -20,7 +20,7 @@ use Flowpack\ElasticSearch\Domain\Factory\ClientFactory;
 use Flowpack\ElasticSearch\Indexer\Object\Transform\TransformerFactory;
 use MapSeven\Neos\FormBundle\Domain\Model\FormData;
 use Neos\Flow\Annotations as Flow;
-use Neos\Flow\Utility\Arrays;
+use Neos\Utility\Arrays;
 use Neos\Flow\Reflection\ReflectionService;
 
 /**
