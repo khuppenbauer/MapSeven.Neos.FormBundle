@@ -1,6 +1,6 @@
 {
     "description": "Bundle package for Neos CMS Form stuff",
-    "type": "neos-flow-package",
+    "type": "neos-package",
     "name": "mapseven/neos-formbundle",
     "license": "MIT",
     "require": {
