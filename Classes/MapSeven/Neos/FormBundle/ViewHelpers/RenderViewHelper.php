@@ -15,7 +15,7 @@ use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Http\Response;
 use Neos\Utility\Arrays;
 use TYPO3\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\Form\Persistence\FormPersistenceManagerInterface;
+use Neos\Form\Persistence\FormPersistenceManagerInterface;
 
 /**
  * Main Entry Point to render a Form into a Fluid Template
@@ -28,7 +28,7 @@ use TYPO3\Form\Persistence\FormPersistenceManagerInterface;
  * <formBundle:render factoryClass="NameOfYourCustomFactoryClass" />
  * </pre>
  *
- * The factory class must implement {@link TYPO3\Form\Factory\FormFactoryInterface}.
+ * The factory class must implement {@link Neos\Form\Factory\FormFactoryInterface}.
  *
  */
 class RenderViewHelper extends AbstractViewHelper
@@ -47,12 +47,12 @@ class RenderViewHelper extends AbstractViewHelper
 
     /**
      * @param string $persistenceIdentifier the persistence identifier for the form.
-     * @param string $factoryClass The fully qualified class name of the factory (which has to implement \TYPO3\Form\Factory\FormFactoryInterface)
+     * @param string $factoryClass The fully qualified class name of the factory (which has to implement \Neos\Form\Factory\FormFactoryInterface)
      * @param string $presetName name of the preset to use
      * @param array $overrideConfiguration factory specific configuration
      * @return string the rendered form
      */
-    public function render($persistenceIdentifier = null, $factoryClass = 'TYPO3\Form\Factory\ArrayFormFactory', $presetName = 'default', array $overrideConfiguration = null)
+    public function render($persistenceIdentifier = null, $factoryClass = 'Neos\Form\Factory\ArrayFormFactory', $presetName = 'default', array $overrideConfiguration = null)
     {
         if (isset($persistenceIdentifier)) {
             $overrideConfiguration = Arrays::arrayMergeRecursiveOverrule($this->formPersistenceManager->load($persistenceIdentifier), $overrideConfiguration ?: array());

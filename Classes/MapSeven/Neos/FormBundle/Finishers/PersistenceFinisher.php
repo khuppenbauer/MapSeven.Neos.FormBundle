@@ -15,13 +15,13 @@ use Neos\Flow\Annotations as Flow;
 use MapSeven\Neos\FormBundle\Domain\Model\FormData;
 use MapSeven\Neos\FormBundle\Domain\Repository\FormDataRepository;
 use MapSeven\Neos\FormBundle\ElasticSearch\Service\ElasticSearchService;
-use TYPO3\Form\Core\Model\FormElementInterface;
+use Neos\Form\Core\Model\FormElementInterface;
 
 /**
  * This finisher sends an email to one recipient
  *
  */
-class PersistenceFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
+class PersistenceFinisher extends \Neos\Form\Core\Model\AbstractFinisher
 {
 
     /**
@@ -65,7 +65,7 @@ class PersistenceFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
      * @see AbstractFinisher::execute()
      *
      * @return void
-     * @throws \TYPO3\Form\Exception\FinisherException
+     * @throws \Neos\Form\Exception\FinisherException
      */
     protected function executeInternal()
     {
