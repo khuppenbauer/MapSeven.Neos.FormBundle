@@ -59,3 +59,11 @@ Neos:
           'MapSeven.Neos.FormBundle:Persistence':
             implementationClassName: MapSeven\Neos\FormBundle\Finishers\PersistenceFinisher
             options: {  }
+TYPO3:
+  Form:
+    presets:
+      default:
+        finisherPresets:
+          'MapSeven.Neos.FormBundle:Persistence':
+            implementationClassName: MapSeven\Neos\FormBundle\Finishers\PersistenceFinisher
+            options: {  }
