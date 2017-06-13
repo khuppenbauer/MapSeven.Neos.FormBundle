@@ -16,6 +16,9 @@
     "extra": {
         "neos": {
             "package-key": "MapSeven.Neos.FormBundle"
-        }
+        },
+        "applied-flow-migrations": [
+            "TYPO3.FLOW3-201201261636"
+        ]
     }
 }
