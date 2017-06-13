@@ -8,7 +8,7 @@ namespace MapSeven\Neos\FormBundle\Tests\Unit\Domain\Model;
 /**
  * Testcase for Form data
  */
-class FormDataTest extends \TYPO3\Flow\Tests\UnitTestCase
+class FormDataTest extends \Neos\Flow\Tests\UnitTestCase
 {
 
     /**

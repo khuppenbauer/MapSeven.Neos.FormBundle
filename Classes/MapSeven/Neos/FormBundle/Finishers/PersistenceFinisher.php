@@ -11,7 +11,7 @@ namespace MapSeven\Neos\FormBundle\Finishers;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 use MapSeven\Neos\FormBundle\Domain\Model\FormData;
 use MapSeven\Neos\FormBundle\Domain\Repository\FormDataRepository;
 use MapSeven\Neos\FormBundle\ElasticSearch\Service\ElasticSearchService;
@@ -45,17 +45,17 @@ class PersistenceFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
     protected $elasticSearchService;
 
     /**
-     * @var \TYPO3\Flow\Security\Context
+     * @var \Neos\Flow\Security\Context
      */
     protected $securityContext;
 
     /**
      * Injects the security context
      *
-     * @param \TYPO3\Flow\Security\Context $securityContext The security context
+     * @param \Neos\Flow\Security\Context $securityContext The security context
      * @return void
      */
-    public function injectSecurityContext(\TYPO3\Flow\Security\Context $securityContext)
+    public function injectSecurityContext(\Neos\Flow\Security\Context $securityContext)
     {
         $this->securityContext = $securityContext;
     }

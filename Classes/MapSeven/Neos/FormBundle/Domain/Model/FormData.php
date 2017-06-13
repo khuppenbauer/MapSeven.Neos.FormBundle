@@ -5,7 +5,7 @@ namespace MapSeven\Neos\FormBundle\Domain\Model;
  * This file is part of the MapSeven.Neos.FormBundle package.
  */
 
-use TYPO3\Flow\Annotations as Flow;
+use Neos\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
