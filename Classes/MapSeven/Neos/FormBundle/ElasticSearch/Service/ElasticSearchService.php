@@ -19,9 +19,9 @@ use Flowpack\ElasticSearch\Domain\Model\Mapping;
 use Flowpack\ElasticSearch\Domain\Factory\ClientFactory;
 use Flowpack\ElasticSearch\Indexer\Object\Transform\TransformerFactory;
 use MapSeven\Neos\FormBundle\Domain\Model\FormData;
-use TYPO3\Flow\Annotations as Flow;
-use TYPO3\Flow\Utility\Arrays;
-use TYPO3\Flow\Reflection\ReflectionService;
+use Neos\Flow\Annotations as Flow;
+use Neos\Utility\Arrays;
+use Neos\Flow\Reflection\ReflectionService;
 
 /**
  *
@@ -74,7 +74,7 @@ class ElasticSearchService
 
     /**
      * @Flow\Inject
-     * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+     * @var \Neos\Flow\Persistence\PersistenceManagerInterface
      */
     protected $persistenceManager;
 
