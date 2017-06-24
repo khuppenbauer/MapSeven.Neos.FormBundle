@@ -34,7 +34,7 @@ class ElasticSearchService
      * The Index Name
      *
      * @var string
-     * @Flow\Inject(setting="elasticSearch.indexName")
+     * @Flow\InjectConfiguration(path="elasticSearch.indexName")
      */
     protected $indexName;
 
@@ -42,7 +42,7 @@ class ElasticSearchService
      * The Index Name
      *
      * @var string
-     * @Flow\Inject(setting="elasticSearch.defaultMapping")
+     * @Flow\InjectConfiguration(path="elasticSearch.defaultMapping")
      */
     protected $defaultMapping;
 
@@ -50,7 +50,7 @@ class ElasticSearchService
      * The Index Name
      *
      * @var string
-     * @Flow\Inject(setting="elasticSearch.transform")
+     * @Flow\InjectConfiguration(path="elasticSearch.transform")
      */
     protected $transform;
 
