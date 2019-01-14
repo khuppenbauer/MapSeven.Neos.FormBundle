@@ -4,7 +4,7 @@
     "name": "mapseven/neos-formbundle",
     "license": "MIT",
     "require": {
-        "neos/flow": "^4.0",
+        "neos/flow": "^4.0 || ^5.0 || dev-master",
         "neos/form": "*",
         "flowpack/elasticsearch": "*"
     },
@@ -81,7 +81,12 @@
             "Neos.Fusion-20170120013047",
             "Neos.Flow-20170125103800",
             "Neos.Seo-20170127154600",
-            "Neos.Flow-20170127183102"
+            "Neos.Flow-20170127183102",
+            "Neos.SwiftMailer-20161130105617",
+            "Neos.Fusion-20180211175500",
+            "Neos.Fusion-20180211184832",
+            "Neos.Flow-20180415105700",
+            "Neos.Neos-20180907103800"
         ]
     }
 }
