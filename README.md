@@ -1,6 +1,6 @@
 # MapSeven.Neos.FormBundle
-This Bundle contains various stuff to work with the TYPO3.Form Package in NeosCMS
 
+This Bundle contains various stuff to work with the Neos.Form Package in Neos CMS
 ## Installation
 `composer require mapseven/neos-formbundle`
 
@@ -33,7 +33,7 @@ Add the properties you want to override to the `NodeTypes.yaml`
 ```yaml
 'MapSeven.Neos.FormBundleDemo:Form':
   superTypes:
-    'TYPO3.Neos.NodeTypes:Form': true
+    'Neos.NodeTypes:Form': true
   ui:
     label: Demo Form
     icon: 'icon-envelope-alt'
@@ -84,7 +84,7 @@ Besides that you can define the mapping and transformers for each form item in a
     #...
     renderables:
       -
-        type: 'TYPO3.Form:MultipleSelectCheckboxes'
+        type: 'Neos.Form:MultipleSelectCheckboxes'
         identifier: category
         label: 'Categories'
         properties:

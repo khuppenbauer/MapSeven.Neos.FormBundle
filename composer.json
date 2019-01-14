@@ -4,7 +4,7 @@
     "name": "mapseven/neos-formbundle",
     "license": "MIT",
     "require": {
-        "neos/flow": "^4.0",
+        "neos/flow": "^4.0 || ^5.0 || dev-master",
         "neos/form": "*",
         "flowpack/elasticsearch": "*"
     },
